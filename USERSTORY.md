@@ -11,17 +11,18 @@ Menu
   -Browse Cards
   -Create Set
   -My Sets
+  -My Expansions
   -Exit
 
 Quick Start
   Request number of players
-  Set up user hands and required cards 
-  Set up the variable or "session" cards
+  Instructions for user hands and required cards 
+  Instructions for variable or "session" cards
     Generate randomly
-      Available sets
+      Available expansions
     Pull from favorites 
-      Session set
-      Favorite card?
+      Session expansions
+      Favorite cards?
   Win conditions
 
 Browse Cards
@@ -42,3 +43,24 @@ My Sets
 
 Exit
   Function of CLI app, allows the user to exit the application. 
+
+
+  MVP
+  Welcome
+  Request User Identity 
+  Menu
+    Quick Start
+      Rules based off players
+      My Set
+      Random Set
+      Way to exit/go back/home
+    Create Set
+      Browse cards
+      Add to set
+      Way to exit/go back/home
+    My Sets 
+      Named sets of the user
+      Way to exit/go back/home
+    Exit
+  API Integration 
+  
