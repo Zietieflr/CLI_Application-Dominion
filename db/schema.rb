@@ -23,26 +23,26 @@ ActiveRecord::Schema.define(version: 2020_05_27_161846) do
   end
 
   create_table "favorite_cards", force: :cascade do |t|
-    t.integer "user_id_id"
-    t.integer "card_id_id"
-    t.index ["card_id_id"], name: "index_favorite_cards_on_card_id_id"
-    t.index ["user_id_id"], name: "index_favorite_cards_on_user_id_id"
+    t.integer "user_id"
+    t.integer "card_id"
+    t.index ["card_id"], name: "index_favorite_cards_on_card_id"
+    t.index ["user_id"], name: "index_favorite_cards_on_user_id"
   end
 
   create_table "kingdom_card_sets", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id_id"
-    t.integer "card_id_id"
-    t.index ["card_id_id"], name: "index_kingdom_card_sets_on_card_id_id"
-    t.index ["user_id_id"], name: "index_kingdom_card_sets_on_user_id_id"
+    t.integer "user_id"
+    t.integer "card_id"
+    t.index ["card_id"], name: "index_kingdom_card_sets_on_card_id"
+    t.index ["user_id"], name: "index_kingdom_card_sets_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "user_name"
   end
 
-  add_foreign_key "favorite_cards", "card_ids"
-  add_foreign_key "favorite_cards", "user_ids"
-  add_foreign_key "kingdom_card_sets", "card_ids"
-  add_foreign_key "kingdom_card_sets", "user_ids"
+  add_foreign_key "favorite_cards", "cards"
+  add_foreign_key "favorite_cards", "users"
+  add_foreign_key "kingdom_card_sets", "cards"
+  add_foreign_key "kingdom_card_sets", "users"
 end
