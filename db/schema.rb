@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_005035) do
     t.string "card_name"
     t.integer "set_number"
     t.string "set_name"
-    t.string "type"
+    t.string "type_of_card"
     t.boolean "is_kingdom_card"
     t.string "cost"
     t.string "card_text"
