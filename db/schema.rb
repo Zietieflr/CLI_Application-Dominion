@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_27_005035) do
+ActiveRecord::Schema.define(version: 2020_05_27_161846) do
 
   create_table "cards", force: :cascade do |t|
     t.string "card_name"
@@ -22,4 +22,27 @@ ActiveRecord::Schema.define(version: 2020_05_27_005035) do
     t.string "card_text"
   end
 
+  create_table "favorite_cards", force: :cascade do |t|
+    t.integer "user_id_id"
+    t.integer "card_id_id"
+    t.index ["card_id_id"], name: "index_favorite_cards_on_card_id_id"
+    t.index ["user_id_id"], name: "index_favorite_cards_on_user_id_id"
+  end
+
+  create_table "kingdom_card_sets", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id_id"
+    t.integer "card_id_id"
+    t.index ["card_id_id"], name: "index_kingdom_card_sets_on_card_id_id"
+    t.index ["user_id_id"], name: "index_kingdom_card_sets_on_user_id_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "user_name"
+  end
+
+  add_foreign_key "favorite_cards", "card_ids"
+  add_foreign_key "favorite_cards", "user_ids"
+  add_foreign_key "kingdom_card_sets", "card_ids"
+  add_foreign_key "kingdom_card_sets", "user_ids"
 end
