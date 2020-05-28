@@ -41,26 +41,7 @@ class Cli
       puts "Welcome back #{user_name_input}, We're here to help you conquer your Dominion!"
       
     end
-
-
-
-
-
-
-    # puts "Enter Your User Name: "
-    # user_name_input = get_user_input
-    # "Welcome #{user_name_input}, We're here to help you conquer your Dominion!"
-    # ########  check if in database if not add new user
-    # user = User.find_by(user_name: user_name_input) 
-    # # if user
-    # #   puts "User Name is taken" 
-    # # until @user do
-
-    # #  end
   end
-
-
-
 
   def main_menu 
     choices = {
@@ -71,6 +52,23 @@ class Cli
       'My Expansions' => 5, 
       'Exit' => 6}
     answer = prompt.select("Choose Option:", choices, cycle: true)
+
+    case answer 
+      when 1
+        quick_menu = QuickStart.new
+        quick_menu.quick_start_welcome
+        quick_menu.quick_start
+      when 2
+        browse_cards
+      when 3
+        create_set
+      when 4
+        my_sets
+      when 5
+        my_expansions
+      when 6
+        exit
+    end 
   end
 
   def start_game
