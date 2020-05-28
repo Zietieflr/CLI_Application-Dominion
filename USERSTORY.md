@@ -17,7 +17,7 @@ Menu
 Quick Start
   Request number of players
   Instructions for user hands and required cards 
-  Instructions for variable or "session" cards
+  Instructions for kingdom cards
     Generate randomly
       Available expansions
     Pull from favorites 
