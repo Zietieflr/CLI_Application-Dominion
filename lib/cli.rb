@@ -79,11 +79,10 @@ class Cli
 
   def browse_menu
     browse_choices = {
-        "Browse By Expansion" => 1,
-        "Browse By Set" => 2,
-        "Browse All" => 3,
-        "Search By Name" => 4,
-        "Main Menu" => 5
+        "Browse Base Game / Expansions" => 1,
+        "Browse All" => 2,
+        "Search By Name" => 3,
+        "Main Menu" => 4
     }
     browse_answer = menu_prompt(browse_choices)
 
@@ -91,19 +90,20 @@ class Cli
         when 1
           expansion_menu
         when 2
-          
+          browse_all 
+          browse_menu
         when 3
-          browse_all
-        when 4
           puts "Enter Card Name: "
           search_by_name(get_user_input)
-        when 5
+          browse_menu
+        when 4
           main_menu
       end
   end
 
   def expansion_menu
-    expansion_menu = {
+
+    expansion_menu_choices = {
       "Intrigue" => 1,
       "Seaside" => 2,
       "Prosperity" => 3,
@@ -112,38 +112,71 @@ class Cli
       "Guilds" => 6,
       "Cornucopia" => 7,
       "Dark Ages" => 8,
-      "Back To Browse Menu" => 9
+      "Promo" => 9,
+      "Dominion" => 10,
+      "Base Cards" => 11,
+      "Adventures" => 12,
+      "Empires" => 13,
+      "Nocturne" => 14,
+      "Renaissance" => 15,
+      "Back To Browse Menu" => 16 
     }
-    expansion_choice = menu_prompt(expansion_menu)
-binding.pry
+
+    expansion_choice = menu_prompt(expansion_menu_choices)
+
     case expansion_choice
       when 1
-        browse_by_expansion "Intrigue"
+        browse_by_expansion "Intrigue" 
+
+        expansion_menu
       when 2
         browse_by_expansion "Seaside"
+        expansion_menu
       when 3
         browse_by_expansion "Prosperity"
+        expansion_menu
       when 4
         browse_by_expansion "Hinterlands"
+        expansion_menu
       when 5
         browse_by_expansion "Alchemy"
+        expansion_menu
       when 6
         browse_by_expansion "Guilds"
+        expansion_menu
       when 7
         browse_by_expansion "Cornucopia"
+        expansion_menu
       when 8
         browse_by_expansion "Dark Ages"
+        expansion_menu
       when 9
+        browse_by_expansion "Promo" 
+        expansion_menu
+      when 10
+        browse_by_expansion "Dominion"
+      when 11
+        browse_by_expansion "Base Cards"
+      when 12
+        browse_by_expansion "Adventures"
+      when 13
+        browse_by_expansion "Empires"
+      when 14
+        browse_by_expansion "Nocturne"
+      when 15
+        browse_by_expansion "Renaissance"
+      when 16
         browse_menu
     end
+   
   end
 
   def browse_by_expansion expansion
+
     Card.where(set_name: expansion).map do |card|
       output_card_info(card)
     end
   end
-
 
   def browse_all
     Card.all.map do |card|
@@ -151,12 +184,12 @@ binding.pry
         Set Name: #{card.set_name} \n
         Type: #{card.type_of_card} \n
         Cost: #{card.cost} \n
-        Text: #{card.card_text}"
+        Text: #{card.card_text}\n"
     end
   end
   
   
-#card_name,set_number,set_name,type_of_card,is_kingdom_card,cost,card_text
+
   def search_by_name(card_name)
     card_searched = Card.all.find_by(card_name: card_name) # Need to add change to downcase
     output_card_info(card_searched)
@@ -169,7 +202,7 @@ binding.pry
     puts "Type Of Card: #{card_searched.type_of_card}"
     puts "Kingdom Card: #{card_searched.is_kingdom_card}"
     puts "Cost: #{card_searched.cost}"
-    puts "Card Text: #{card_searched.card_text}" 
+    puts "Card Text: #{card_searched.card_text}\n" 
   end
 
   def exit_message
