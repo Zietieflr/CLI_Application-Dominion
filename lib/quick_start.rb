@@ -87,7 +87,10 @@ class QuickStart
   end
 end
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
 >>>>>>> 5052b66b03a2cae3dc8115d2f3778198cdcce386
+=======
+>>>>>>> f8b05060935cb84848555d2179e3a9b9c2226503
