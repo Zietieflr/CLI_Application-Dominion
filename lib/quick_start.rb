@@ -39,6 +39,4 @@ class QuickStart
   end
 end
 
-quick_menu = QuickStart.new
-quick_menu.quick_start_welcome
-quick_menu.quick_start
+

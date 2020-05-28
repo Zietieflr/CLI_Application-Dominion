@@ -67,8 +67,16 @@ class Cli
       when 5
         my_expansions
       when 6
-        exit
+        exit_message
     end 
+  end
+
+  def exit_message
+    begin
+      exit
+    rescue SystemExit
+      puts "May your dominion be large, prosperous, and efficient."
+    end
   end
 
   def start_game
@@ -76,4 +84,4 @@ class Cli
     user_name
     main_menu
   end
-end
+end3
