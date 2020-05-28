@@ -1,6 +1,12 @@
 require 'pry'
 
 class QuickStart
+
+  def initialize
+    @number_of_players
+    @rules = Rule.new
+  end
+
   def process_number_of_players(players)
     case players
     when 1
@@ -22,7 +28,7 @@ class QuickStart
   end
 
   def rules_for_number_of_players(players)
-    puts 'Rules here.'
+    @rules
   end
 
   def quick_start_welcome
