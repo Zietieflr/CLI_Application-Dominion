@@ -1,0 +1,2 @@
+class BrowseCards
+end
