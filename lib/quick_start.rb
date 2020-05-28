@@ -5,6 +5,7 @@ class QuickStart
   def initialize
     @number_of_players
     @rules = Rule.new
+    @prompt = TTY::Prompt.new
   end
 
   def process_number_of_players(players)
@@ -29,7 +30,7 @@ class QuickStart
 
   def rules_for_number_of_players(players)
     @rules.number_of_players = players
-    @rules.rule_text
+    @rules.rule_beginning_text
   end
 
   def quick_start_welcome
@@ -45,7 +46,7 @@ class QuickStart
       'Choose from My Sets' => 1,
       'Generate Random Set' => 2
     }
-    prompt.select("Choose Option:", choices, cycle: true)
+    @prompt.select("Choose Option:", choices, cycle: true)
   end 
 
   def choose_kingdom_cards
@@ -60,5 +61,6 @@ class QuickStart
   def quick_start
     ask_for_players
     process_number_of_players(number_of_players)
+    choose_kingdom_cards
   end
 end

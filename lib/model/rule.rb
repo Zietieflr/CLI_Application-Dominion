@@ -1,12 +1,14 @@
 class Rule
   attr_accessor :number_of_players
+
   def initialize
     @number_of_players = 0
   end
-  def rule_text
+
+  def rule_beginning_text
+    more_than_four?
     confirm_players
     universal_rules
-    more_than_four?
     victory_cards
     curses
   end
@@ -37,7 +39,7 @@ class Rule
   end
 
   def confirm_players
-    puts "Great! Here\'s what you need for #{@number_of_players}: "
+    puts "Let's get started! Here\'s what you need for #{@number_of_players} players: "
   end
 
   def more_than_four?
