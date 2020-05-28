@@ -1,9 +1,7 @@
 require 'pry'
 
 class QuickStart
-
   def initialize
-    @number_of_players
     @rules = Rule.new
     @prompt = TTY::Prompt.new
   end
@@ -16,10 +14,12 @@ class QuickStart
     when 2..6
       rules_for_number_of_players(players)
     when 7..15
-      puts 'You have too many players! Dominion supports 2-4 players (5-6 with the Base Cards add on)!'
+      puts 'You have too many players! Dominion supports 2-4 '\
+        'players (5-6 with the Base Cards add on)!'
       quick_start
     else
-      puts 'Sorry, that was not a usable number of players! Please enter a number between 2 and 6!'
+      puts 'Sorry, that was not a usable number of players! '\
+        'Please enter a number between 2 and 6!'
       quick_start
     end
   end
@@ -29,7 +29,7 @@ class QuickStart
   end
 
   def rules_for_number_of_players(players)
-    @rules.number_of_players = players
+    @rules.player_count = players
     @rules.rule_beginning_text
   end
 
@@ -46,16 +46,38 @@ class QuickStart
       'Choose from My Sets' => 1,
       'Generate Random Set' => 2
     }
-    @prompt.select("Choose Option:", choices, cycle: true)
+    @prompt.select('Choose Option:', choices, cycle: true)
   end 
 
   def choose_kingdom_cards
     case choose_kingdom_cards_menu
     when 1
-      puts 'Tie to My Sets'
+      print_kingdom_cards(my_sets_menu)
     when 2
-      puts 'Tie to Random Generation'
+      print_kingdom_cards(random_kingdom_card_set)
     end
+  end
+
+  def random_kingdom_card_set
+    'Random Set'
+  end
+
+  def make_menu_from_my_sets
+    # make a hash from My Sets for menu options
+    {
+      'Default 1' => 'Default 1',
+      'Default 2' => 'Default 2'
+    }
+  end
+
+  def my_sets_menu
+    choices = make_menu_from_my_sets
+    @prompt.select('Choose Kingdom Card Set:', choices, cycle: true)
+  end
+
+  def print_kingdom_cards(kingdom_card_set)
+    puts "Your cards from #{kingdom_card_set}: "
+    puts " Card \n Card \n Card \n Card"
   end
 
   def quick_start

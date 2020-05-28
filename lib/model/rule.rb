@@ -1,8 +1,8 @@
 class Rule
-  attr_accessor :number_of_players
+  attr_accessor :player_count
 
   def initialize
-    @number_of_players = 0
+    @player_count = 0
   end
 
   def rule_beginning_text
@@ -14,11 +14,11 @@ class Rule
   end
 
   def curses
-    puts "Place #{(@number_of_players * 10) - 10} curse cards into the Supply."
+    puts "Place #{(@player_count * 10) - 10} curse cards into the Supply."
   end
 
   def victory_cards
-    case @number_of_players
+    case @player_count
     when 2
       puts 'Place 8 copies of each Estate, Dutchy, and Province cards into the Supply.'
     when 3..4
@@ -39,12 +39,12 @@ class Rule
   end
 
   def confirm_players
-    puts "Let's get started! Here\'s what you need for #{@number_of_players} players: "
+    puts "Let's get started! Here\'s what you need for #{@player_count} players: "
   end
 
   def more_than_four?
-    if @number_of_players > 4
-      puts "You\'ll need to have the Base Cards booster expansion to play a full game with #{@number_of_players} players."
+    if @player_count > 4
+      puts "You\'ll need to have the Base Cards booster expansion to play a full game with #{@player_count} players."
     end
   end
 end
