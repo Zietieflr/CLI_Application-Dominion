@@ -47,4 +47,17 @@ class Rule
       puts "You\'ll need to have the Base Cards booster expansion to play a full game with #{@player_count} players."
     end
   end
+
+  def end_conditions
+    case @player_count
+    when 2..4
+      puts "The game ends at the start of a player's turn when: \n"\
+        "Province Supply pile is empty. \n or \n"\
+        'Three or more Supply piles are empty.'
+    when 5..6
+      puts "The game ends at the start of a player's turn when: \n"\
+        "    Province Supply pile is empty. \n         OR \n"\
+        '    Four or more Supply piles are empty.'
+    end
+  end
 end

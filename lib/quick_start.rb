@@ -4,6 +4,7 @@ class QuickStart
   def initialize
     @rules = Rule.new
     @prompt = TTY::Prompt.new
+    @random_set = []
   end
 
   def process_number_of_players(players)
@@ -80,9 +81,28 @@ class QuickStart
     puts " Card \n Card \n Card \n Card"
   end
 
+  def end_game_conditions
+    @rules.end_conditions
+    new_game
+  end
+
+  def new_game
+    choices = {
+      'New Game' => 1,
+      'Main Menu' => 2
+    }
+    case @prompt.select('What next?', choices, cycle: true)
+    when 1
+      quick_start
+    when 2
+      nil
+    end
+  end
+
   def quick_start
     ask_for_players
     process_number_of_players(number_of_players)
     choose_kingdom_cards
+    end_game_conditions
   end
 end
