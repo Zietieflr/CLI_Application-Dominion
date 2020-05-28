@@ -43,9 +43,6 @@ class Cli
     end
   end
 
-
-
-
   def main_menu 
     choices = {
       'Quick Start/Setup' => 1, 
@@ -58,7 +55,9 @@ class Cli
 
     case answer 
       when 1
-        quick_start
+        quick_menu = QuickStart.new
+        quick_menu.quick_start_welcome
+        quick_menu.quick_start
       when 2
         browse_cards
       when 3
