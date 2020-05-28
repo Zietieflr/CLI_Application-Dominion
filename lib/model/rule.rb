@@ -5,6 +5,10 @@ class Rule
   end
   def rule_text
     confirm_players
+    universal_rules
+    more_than_four?
+    victory_cards
+    curses
   end
 
   def curses
@@ -26,10 +30,6 @@ class Rule
     end
   end
 
-  def players5_6
-
-  end
-
   def universal_rules
     puts 'Deal each player 3 Estates and 7 Coppers. These will need to be shuffled.'
     puts "Then we\'ll build the Supply: "
@@ -43,9 +43,6 @@ class Rule
   def more_than_four?
     if @number_of_players > 4
       puts "You\'ll need to have the Base Cards booster expansion to play a full game with #{@number_of_players} players."
-      true
-    else
-      false
     end
   end
 end

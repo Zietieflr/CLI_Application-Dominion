@@ -28,7 +28,8 @@ class QuickStart
   end
 
   def rules_for_number_of_players(players)
-    @rules
+    @rules.number_of_players = players
+    @rules.rule_text
   end
 
   def quick_start_welcome
@@ -39,12 +40,25 @@ class QuickStart
     print 'Please enter the number of players: '
   end
 
+  def choose_kingdom_cards_menu
+    choices = {
+      'Choose from My Sets' => 1,
+      'Generate Random Set' => 2
+    }
+    prompt.select("Choose Option:", choices, cycle: true)
+  end 
+
+  def choose_kingdom_cards
+    case choose_kingdom_cards_menu
+    when 1
+      puts 'Tie to My Sets'
+    when 2
+      puts 'Tie to Random Generation'
+    end
+  end
+
   def quick_start
     ask_for_players
     process_number_of_players(number_of_players)
   end
 end
-
-quick_menu = QuickStart.new
-quick_menu.quick_start_welcome
-quick_menu.quick_start
