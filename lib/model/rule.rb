@@ -14,21 +14,21 @@ class Rule
   end
 
   def curses
-    puts "Place #{(@player_count * 10) - 10} curse cards into the Supply."
+    puts "Place #{(@player_count * 10) - 10} curse cards into the Supply.\n \n"
   end
 
   def victory_cards
     case @player_count
     when 2
-      puts 'Place 8 copies of each Estate, Dutchy, and Province cards into the Supply.'
+      puts 'Place 8 copies of each Estate, Dutchy, and Province cards into the Supply.\n'
     when 3..4
       puts 'Place 12 copies of each Estate, Dutchy, and Province cards into the Supply.'
     when 5
       puts 'Place 12 copies of each Estate and Dutchy cards into the Supply.'
-      puts 'Place 15 Province Cards into the Supply.'
+      puts 'Place 15 Province Cards into the Supply.\n'
     when 6
       puts 'Place 12 copies of each Estate and Dutchy cards into the Supply.'
-      puts 'Place 18 Province Cards into the Supply.'
+      puts "Place 18 Province Cards into the Supply.\n"
     end
   end
 
@@ -39,7 +39,7 @@ class Rule
   end
 
   def confirm_players
-    puts "Let's get started! Here\'s what you need for #{@player_count} players: "
+    puts "\nLet's get started! Here\'s what you need for #{@player_count} players: "
   end
 
   def more_than_four?
@@ -53,11 +53,11 @@ class Rule
     when 2..4
       puts "The game ends at the start of a player's turn when: \n"\
         "Province Supply pile is empty. \n or \n"\
-        'Three or more Supply piles are empty.'
+        "Three or more Supply piles are empty.\n \n"
     when 5..6
       puts "The game ends at the start of a player's turn when: \n"\
         "    Province Supply pile is empty. \n         OR \n"\
-        '    Four or more Supply piles are empty.'
+        "    Four or more Supply piles are empty.\n \n"
     end
   end
 end

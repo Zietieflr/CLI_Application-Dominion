@@ -10,13 +10,13 @@ class QuickStart
   def process_number_of_players(players)
     case players
     when 1
-      puts "You'll need at least one other player for Dominion!"
+      puts "\nYou'll need at least one other player for Dominion! \n \n"
       quick_start
     when 2..6
       rules_for_number_of_players(players)
     when 7..15
-      puts 'You have too many players! Dominion supports 2-4 '\
-        'players (5-6 with the Base Cards add on)!'
+      puts "\nYou have too many players! Dominion supports 2-4 "\
+        "players (5-6 with the Base Cards add on)!\n"
       quick_start
     else
       puts 'Sorry, that was not a usable number of players! '\
