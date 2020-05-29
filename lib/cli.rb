@@ -25,7 +25,7 @@ class Cli
     
 
     if new_user
-      puts "Create Your New User Name: "
+      puts "\nCreate Your New User Name: "
 
       @user_name_input = get_user_input
 
@@ -33,26 +33,26 @@ class Cli
 
       if user
         while user
-        puts "Sorry, this name has been taken."
+        puts "\nSorry, this name has been taken."
         puts "Try another name: "
         @user_name_input = get_user_input
         user = User.find_by(user_name: @user_name_input)
         end
-        puts "Welcome #{@user_name_input}, We're here to help you conquer your Dominion!"
+        puts "\nWelcome #{@user_name_input}, We're here to help you conquer your Dominion! \n \n"
       else
         User.create(user_name: @user_name_input)
-        puts "Welcome #{@user_name_input}, We're here to help you conquer your Dominion!"
+        puts "\nWelcome #{@user_name_input}, We're here to help you conquer your Dominion! \n \n"
       end
     else
-      puts "Enter your user name: "
+      puts "\nEnter your user name: "
       @user_name_input = get_user_input
-      puts "Welcome back #{@user_name_input}, We're here to help you conquer your Dominion!"
+      puts "\nWelcome back #{@user_name_input}, We're here to help you conquer your Dominion! \n \n"
       
     end
   end
 
   def menu_prompt(choices)
-    prompt.select("Choose Option:", choices, cycle: true)
+    prompt.select("Choose An Option:\n", choices, cycle: true)
   end
     
 
@@ -63,8 +63,8 @@ class Cli
       'Browse Cards' => 2 ,
       'Create Set' => 3, 
       'My Sets' => 4, 
-      'My Expansions' => 5, 
-      'Exit' => 6}
+      'Exit' => 5
+      }
     answer = menu_prompt(main_menu_choices)
 
     case answer 
@@ -86,8 +86,6 @@ class Cli
         @my_sets.what_next?
         main_menu
       when 5
-        my_expansions
-      when 6
         exit_message
     end 
   end
@@ -142,7 +140,6 @@ class Cli
     case expansion_choice
       when 1
         browse_by_expansion "Intrigue" 
-
         expansion_menu
       when 2
         browse_by_expansion "Seaside"
@@ -170,16 +167,22 @@ class Cli
         expansion_menu
       when 10
         browse_by_expansion "Dominion"
+        expansion_menu
       when 11
         browse_by_expansion "Base Cards"
+        expansion_menu
       when 12
         browse_by_expansion "Adventures"
+        expansion_menu
       when 13
         browse_by_expansion "Empires"
+        expansion_menu
       when 14
         browse_by_expansion "Nocturne"
+        expansion_menu
       when 15
         browse_by_expansion "Renaissance"
+        expansion_menu
       when 16
         browse_menu
     end
@@ -217,7 +220,7 @@ class Cli
     puts "Type Of Card: #{card_searched.type_of_card}"
     puts "Kingdom Card: #{card_searched.is_kingdom_card}"
     puts "Cost: #{card_searched.cost}"
-    puts "Card Text: #{card_searched.card_text}\n" 
+    puts "Card Text: #{card_searched.card_text}\n \n" 
   end
 
   def create_set_menu
