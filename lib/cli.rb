@@ -3,6 +3,7 @@ class Cli
 
   def initialize
     @my_sets = MySet.new('Name')
+    @art = Art.new
   end
   
    def prompt
@@ -10,6 +11,8 @@ class Cli
    end
   
   def welcome
+    puts @art.castle2
+    puts "\n \n"
     puts 'Welcome to Dominion Helper!'
   end
 
@@ -66,6 +69,8 @@ class Cli
 
     case answer 
       when 1
+        puts @art.castle3
+        puts "\n \n"
         quick_menu = QuickStart.new
         quick_menu.quick_start_welcome
         quick_menu.quick_start
@@ -356,7 +361,8 @@ class Cli
     begin
       exit
     rescue SystemExit
-      puts "May your dominion be large, prosperous, and efficient."
+      puts "May your dominion be large, prosperous, and efficient. \n \n"
+      puts @art.royalty
     end
   end
 
