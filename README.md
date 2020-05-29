@@ -40,9 +40,9 @@ Thank you to The Big Collection of Love ASCII Art for a great selection of fun a
 http://loveascii.com/index.html
 
 ## Built With
-Ruby
-ActiveRecord
-TTY
+Ruby  
+ActiveRecord  
+TTY  
 
 ## Goals the Future
 Presented with time and great resolve these features could be implemented: 
