@@ -106,4 +106,7 @@ class QuickStart
     end_game_conditions
   end
 end
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a748970d4a3bdcb0c45b701b45613e5e303e404
