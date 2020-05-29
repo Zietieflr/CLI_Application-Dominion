@@ -83,12 +83,11 @@ class QuickStart
 
   def end_game_conditions
     @rules.end_conditions
-    new_game
+    # new_game
   end
 
   def new_game
     choices = {
-      'New Game' => 1,
       'Main Menu' => 2
     }
     case @prompt.select('What next?', choices, cycle: true)
@@ -102,7 +101,5 @@ class QuickStart
   def quick_start
     ask_for_players
     process_number_of_players(number_of_players)
-    choose_kingdom_cards
-    end_game_conditions
   end
 end
