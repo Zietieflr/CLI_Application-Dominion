@@ -1,4 +1,9 @@
 class Cli 
+  attr_reader :my_sets
+
+  def initialize
+    @my_sets = MySet.new('Name')
+  end
   
    def prompt
       TTY::Prompt.new
@@ -354,6 +359,7 @@ class Cli
   def start_game
     welcome
     user_name
+    @my_sets.user = @user_name_input
     main_menu
   end
 
