@@ -264,7 +264,7 @@ class Cli
       while add_another_card
         puts "What Kingdom Card Would You Like To Add: "
         new_card_to_add = get_user_input    
-
+        
         card_id = Card.find_by(card_name: new_card_to_add).id
         user_id = User.find_by(user_name: @user_name_input).id
 
