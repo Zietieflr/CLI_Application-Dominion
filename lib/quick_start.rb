@@ -106,4 +106,3 @@ class QuickStart
     end_game_conditions
   end
 end
-
