@@ -69,13 +69,17 @@ class Cli
         quick_menu = QuickStart.new
         quick_menu.quick_start_welcome
         quick_menu.quick_start
-        
+        @my_sets.display_sets
+        quick_menu.end_game_conditions
+        main_menu
       when 2
         browse_menu
       when 3
         create_set_menu
       when 4
-        my_sets
+        @my_sets.display_sets
+        @my_sets.what_next?
+        main_menu
       when 5
         my_expansions
       when 6
@@ -359,8 +363,7 @@ class Cli
   def start_game
     welcome
     user_name
-    @my_sets.user = @user_name_input
+    @my_sets.user = User.find_by(user_name: @user_name_input)
     main_menu
   end
-
 end
